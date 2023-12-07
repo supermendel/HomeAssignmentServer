@@ -10,9 +10,7 @@ app.use(cors());
 
 const uri = "mongodb+srv://gabimendel:Gabimendel12@cluster0.qgtb6nc.mongodb.net/HomeAssignmentDB?retryWrites=true&w=majority";
 
-mongoose.connect(uri, {
-  useUnifiedTopology: true,
-});
+mongoose.connect(uri);
 
 const db = mongoose.connection;
 
