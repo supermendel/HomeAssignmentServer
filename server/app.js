@@ -7,8 +7,8 @@ const app = express();
 const cors = require('cors');
 
 app.use(cors());
-const uri = 'mongodb+srv://gabimendel:<Gabimendel12>@cluster0.qgtb6nc.mongodb.net/?retryWrites=true&w=majority'
 
+const uri = "mongodb+srv://gabimendel:Gabimendel12@cluster0.qgtb6nc.mongodb.net/HomeAssignmentDB"
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -20,7 +20,7 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', () => {
   console.log('Connected to the MongoDB database');
-
+   
    });
 
 
@@ -46,7 +46,7 @@ io.on('connection',(socket)=>{
      console.log(`to update is: ${doc}`); 
      update = {code: data.code};
      await doc.updateOne(update);
-     const updatedDoc = await CodeBlock.findOne({ id: data.id });
+     const updatedDoc = await CodeBlock.findOne({ id: data.id});
      console.log(` updated doc  is: ${updatedDoc}`)
     }
    catch(error){
@@ -102,8 +102,10 @@ io.on('connection',(socket)=>{
  }
 
 app.get('/lobby', async (req, res) => {
+  console.log("reached Lobby");
   try {
     const codeblocks = await CodeBlock.find();
+    console.log(codeblocks);
     res.json(codeblocks); //transfering to json
   } catch (error) {
     console.error('Error fetching code blocks:', error);
