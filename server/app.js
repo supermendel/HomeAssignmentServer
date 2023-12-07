@@ -11,6 +11,7 @@ require('dotenv').config();
 
 app.use(cors());
 const uri = process.env.MONGODB_URI;
+const port = process.env.PORT || 5000;
 mongoose.connect(uri);
 
 const db = mongoose.connection;
@@ -123,7 +124,7 @@ app.get('/codeblock/:id', async (req, res) => {
 });
 
 
-server.listen(5000,()=>{
+server.listen(port,()=>{
     console.log("Server is running");
 }
  )
