@@ -5,11 +5,12 @@ const CodeBlock = require('./Models/Codeblock');
 const {Server} = require('socket.io');
 const app = express();
 const cors = require('cors');
+require('dotenv').config();
+
+
 
 app.use(cors());
-
-const uri = "mongodb+srv://gabimendel:Gabimendel12@cluster0.qgtb6nc.mongodb.net/HomeAssignmentDB?retryWrites=true&w=majority";
-
+const uri = process.env.MONGODB_URI;
 mongoose.connect(uri);
 
 const db = mongoose.connection;
