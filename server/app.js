@@ -8,9 +8,9 @@ const cors = require('cors');
 
 app.use(cors());
 
-const uri = "mongodb+srv://gabimendel:Gabimendel12@cluster0.qgtb6nc.mongodb.net/HomeAssignmentDB"
+const uri = "mongodb+srv://gabimendel:Gabimendel12@cluster0.qgtb6nc.mongodb.net/HomeAssignmentDB?retryWrites=true&w=majority&ssl=true";
+
 mongoose.connect(uri, {
-  useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
