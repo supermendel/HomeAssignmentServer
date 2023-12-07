@@ -11,7 +11,15 @@ require('dotenv').config();
 
 app.use(cors());
 const uri = process.env.MONGODB_URI;
-mongoose.connect(uri);
+mongoose.connect(uri,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true, // Add this line
+    useFindAndModify: false, // Add this line
+  });
+  
+
 
 const db = mongoose.connection;
 
