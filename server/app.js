@@ -5,7 +5,7 @@ const CodeBlock = require('./Models/Codeblock');
 const {Server} = require('socket.io');
 const app = express();
 const cors = require('cors');
-require('.env').config();
+require('dotenv').config();
 
 
 
