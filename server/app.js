@@ -7,9 +7,9 @@ const app = express();
 const cors = require('cors');
 
 app.use(cors());
+const uri = 'mongodb+srv://gabimendel:<Gabimendel12>@cluster0.qgtb6nc.mongodb.net/?retryWrites=true&w=majority'
 
-
-mongoose.connect('mongodb://localhost:27017/HomeAssignmentDB', {
+mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
